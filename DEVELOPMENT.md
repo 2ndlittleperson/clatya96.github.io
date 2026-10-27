@@ -56,7 +56,7 @@ Github_website/
 │   └── index.html           Korean page
 │
 ├── css/
-│   └── style.css            single stylesheet, 437 lines
+│   └── style.css            single stylesheet, 490 lines
 ├── js/
 │   └── main.js              117 lines
 │
