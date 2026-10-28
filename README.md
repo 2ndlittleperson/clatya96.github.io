@@ -68,6 +68,102 @@ Almost always one of two things: the repository is not named exactly `clatya96.g
 
 ---
 
+## 다른 PC에서 배포하기
+
+이 폴더는 아직 GitHub에 push되지 않았기 때문에, 다른 PC에서 `git clone`으로 받을 수 없습니다. 폴더를 **커밋 기록(`.git`)까지 포함해서** 직접 옮긴 뒤, 그 PC에서 push합니다.
+
+### 1. 코드 옮기기 (원래 PC에서)
+
+둘 중 하나를 고릅니다.
+
+**방법 A — 폴더 통째로 복사 (가장 간단)**
+
+폴더 전체를 USB, 클라우드 드라이브, zip 등으로 옮깁니다.
+
+> **숨김 폴더 `.git`이 반드시 같이 가야 합니다.** 탐색기에서 숨김 항목이 안 보이는 상태로 복사하거나, `.git`을 빼고 압축하면 커밋 기록과 원격 설정이 사라집니다. zip으로 묶을 때는 폴더 자체를 우클릭해서 압축하세요(폴더 안의 파일만 선택해서 압축하면 `.git`이 빠질 수 있음).
+
+**방법 B — git bundle (파일 하나로 옮기기)**
+
+```bash
+cd C:\Users\clatya96\Projects\GIthub_website
+git bundle create portfolio.bundle --all
+```
+
+bundle에는 **커밋된 내용만** 들어갑니다. 만들기 전에 `git status`로 커밋 안 된 변경이 없는지 확인하세요.
+
+생성된 `portfolio.bundle` 파일 하나만 옮기면 됩니다. 새 PC에서:
+
+```bash
+git clone portfolio.bundle GIthub_website
+cd GIthub_website
+git remote set-url origin https://github.com/<GitHub아이디>/<GitHub아이디>.github.io.git
+```
+
+(bundle에서 clone하면 `origin`이 bundle 파일을 가리키므로 마지막 줄로 GitHub 주소로 바꿔줘야 합니다.)
+
+### 2. 새 PC 준비
+
+1. **Git 설치** — <https://git-scm.com/download/win>. Git for Windows에는 Git Credential Manager가 포함되어 있어서, 처음 push할 때 브라우저 창이 떠서 GitHub 로그인만 하면 됩니다. 토큰을 따로 만들 필요는 없습니다.
+2. **커밋 작성자 설정** (그 PC에서 처음 Git을 쓰는 경우)
+   ```bash
+   git config --global user.name "Jiyoung Yun"
+   git config --global user.email "clatya96@gmail.com"
+   ```
+3. **(선택) Python** — 로컬 미리보기(`python -m http.server`)에만 필요합니다. 배포 자체에는 필요 없습니다.
+
+### 3. 옮겨온 상태 확인
+
+```bash
+cd <옮긴 폴더 경로>
+git status          # "nothing to commit, working tree clean" 이어야 함
+git log --oneline   # 기존 커밋들이 보여야 함
+git remote -v       # origin 이 GitHub 저장소 주소인지 확인
+```
+
+`git status`가 `not a git repository`라고 나오면 `.git` 폴더가 빠진 것입니다. 원래 PC에서 다시 옮기세요.
+
+### 4. GitHub 아이디 확인 — 중요
+
+저장소 이름은 **`<GitHub아이디>.github.io`** 여야 하고, 코드 안의 주소는 현재 `clatya96` 기준으로 되어 있습니다. <https://github.com/clatya96> 이 본인 계정이 아니라면(2026-10-27 기준 404), 실제 아이디로 아래를 모두 바꿔야 합니다.
+
+- 원격 주소
+  ```bash
+  git remote set-url origin https://github.com/<GitHub아이디>/<GitHub아이디>.github.io.git
+  ```
+- `index.html`과 `ko/index.html`의 `<head>`에 있는 `https://clatya96.github.io` — `canonical`, `hreflang` 3개, `og:url`, `og:image`, JSON-LD의 `"url"`, `"image"` (파일당 8곳)
+- 이 README 상단의 **Live** 링크
+
+바꾼 뒤 커밋합니다.
+
+```bash
+git add -A
+git commit -m "Use correct GitHub username in URLs"
+```
+
+### 5. 배포
+
+위의 [Deploying for the first time](#deploying-for-the-first-time) 1~3단계를 그대로 따릅니다.
+
+1. <https://github.com/new> 에서 `<GitHub아이디>.github.io` 이름으로 **Public** 저장소 생성 (README, `.gitignore`, license 추가 **안 함**)
+2. `git push -u origin main` — 브라우저 로그인 창이 뜨면 GitHub 계정으로 로그인
+3. 저장소 **Settings → Pages** → Source: **Deploy from a branch** → `main` / `/ (root)` → Save
+
+1분쯤 뒤 `https://<GitHub아이디>.github.io/` 에서 확인합니다.
+
+### 이후에는
+
+한 번 push한 뒤로는 어느 PC에서든 그냥 clone해서 작업하면 됩니다.
+
+```bash
+git clone https://github.com/<GitHub아이디>/<GitHub아이디>.github.io.git
+```
+
+여러 PC를 오가며 수정할 때는 작업 시작 전에 `git pull`, 끝나면 `git push`를 습관으로 하세요. 한쪽에서 pull 없이 수정하면 push할 때 충돌이 납니다.
+
+> 이 문서의 `C:\Users\clatya96\Projects\...` 경로는 원래 PC 기준입니다. 새 PC에서는 폴더를 옮긴 실제 경로로 바꿔 읽으세요.
+
+---
+
 ## Editing the content
 
 | To change | Edit | Section |
