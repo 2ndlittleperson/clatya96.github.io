@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Will AI Image Synthesis Help Constructivist Education at the Online Art Museum? &mdash; Jiyoung Yun</title>
+<meta name="description" content="Case study of a web-based art museum that lets visitors restyle their own photos with AI image synthesis, tested with 83 participants across three museum conditions. CHI 2022 Extended Abstracts.">
+<meta name="author" content="Jiyoung Yun">
+
+<link rel="canonical" href="https://clatya96.github.io/projects/ai-art-museum.html">
+<link rel="alternate" hreflang="en" href="https://clatya96.github.io/projects/ai-art-museum.html">
+<link rel="alternate" hreflang="ko" href="https://clatya96.github.io/ko/projects/ai-art-museum.html">
+<link rel="alternate" hreflang="x-default" href="https://clatya96.github.io/projects/ai-art-museum.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Will AI Image Synthesis Help Constructivist Education at the Online Art Museum?">
+<meta property="og:description" content="A web-based art museum where visitors restyle their own photos into the exhibition, tested with 83 participants.">
+<meta property="og:url" content="https://clatya96.github.io/projects/ai-art-museum.html">
+<meta property="og:image" content="https://clatya96.github.io/assets/featured-chi.jpg">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+<!-- Theme bootstrap. Must run before the stylesheet so data-theme is set
+     before first paint, otherwise dark-mode users get a white flash.
+     try/catch because localStorage throws in Safari private browsing. -->
+<script>
+  try {
+    var t = localStorage.getItem("theme");
+    if (t) document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "Will AI Image Synthesis Technology Help Constructivist Education at The Online Art Museum?",
+  "headline": "Will AI Image Synthesis Technology Help Constructivist Education at The Online Art Museum?",
+  "inLanguage": "en",
+  "datePublished": "2022-04",
+  "author": [
+    { "@type": "Person", "name": "Sewang Lee" },
+    { "@type": "Person", "name": "Jiyoung Yun", "url": "https://clatya96.github.io/" },
+    { "@type": "Person", "name": "Soyeong Lee" },
+    { "@type": "Person", "name": "Yeosol Song" },
+    { "@type": "Person", "name": "Hayeon Song" }
+  ],
+  "isPartOf": {
+    "@type": "PublicationEvent",
+    "name": "CHI Conference on Human Factors in Computing Systems Extended Abstracts (CHI EA '22)"
+  },
+  "pagination": "1-7",
+  "publisher": { "@type": "Organization", "name": "Association for Computing Machinery" },
+  "identifier": "https://doi.org/10.1145/3491101.3519788",
+  "sameAs": "https://dl.acm.org/doi/10.1145/3491101.3519788",
+  "image": "https://clatya96.github.io/assets/featured-chi.jpg"
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__name" href="../">Jiyoung Yun</a>
+
+    <nav class="site-nav" aria-label="Sections">
+      <a href="../#about">About</a>
+      <a href="../#education">Education</a>
+      <a href="../#publications">Publications</a>
+      <a href="../#featured" aria-current="location">Featured</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+
+    <div class="site-header__tools">
+      <p class="lang-switch">
+        <span aria-current="true">EN</span>
+        <span class="lang-switch__sep" aria-hidden="true">|</span>
+        <a href="../ko/projects/ai-art-museum.html" hreflang="ko" lang="ko">KO</a>
+      </p>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+        <span aria-hidden="true">&#9790;</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <article class="project">
+
+    <nav class="backlink" aria-label="Breadcrumb">
+      <a href="../#featured"><span aria-hidden="true">&larr;</span> Featured work</a>
+    </nav>
+
+    <header class="section project__head">
+      <p class="project__eyebrow">AI &middot; Art education &middot; 2022</p>
+      <h1 class="project__title">Will AI Image Synthesis Technology Help Constructivist
+        Education at The Online Art Museum?</h1>
+      <p class="project__lede">An online art museum that asks you to make something. Upload one
+        of your own photos, borrow a Mucha painting&rsquo;s style for it, and the result hangs in
+        your own gallery at the end of the visit. We built it, then tested it against 83
+        visitors to see whether making changes the visit.</p>
+
+      <dl class="timeline project__meta">
+        <dt>Role</dt>
+        <dd>
+          <span class="timeline__role">Second author</span>
+          <span class="timeline__detail">Five-person team across two institutions</span>
+        </dd>
+
+        <dt>Context</dt>
+        <dd>
+          <span class="timeline__role">HAI Lab, Sungkyunkwan University</span>
+          <span class="timeline__detail">With the Graduate School of Culture Technology, KAIST.
+            Advised by Professor Hayeon Song.</span>
+        </dd>
+
+        <dt>Published</dt>
+        <dd>
+          <span class="timeline__role">CHI 2022 Extended Abstracts</span>
+          <span class="timeline__detail">Lee, S., <strong>Yun, J.</strong>, Lee, S., Song, Y.,
+            &amp; Song, H. (2022, April). <cite>Will AI image synthesis technology help
+            constructivist education at the online art museum?</cite> In
+            <span class="pub__venue">CHI Conference on Human Factors in Computing Systems
+            Extended Abstracts</span> (pp. 1&ndash;7). ACM.</span>
+        </dd>
+      </dl>
+
+      <p class="actions">
+        <a class="button" href="https://dl.acm.org/doi/10.1145/3491101.3519788">
+          Read the paper <span class="button__hint">ACM Digital Library &#8599;</span>
+        </a>
+        <a class="button" href="https://doi.org/10.1145/3491101.3519788">
+          DOI <span class="button__hint">10.1145/3491101.3519788 &#8599;</span>
+        </a>
+      </p>
+    </header>
+
+    <!-- ===================== Figure ===================== -->
+    <section class="section" aria-labelledby="system-h">
+      <h2 class="section__title" id="system-h">The system</h2>
+
+      <figure class="figure">
+        <img src="../assets/featured-chi.jpg"
+             alt="Screenshot of the CAAI web page in Korean. At the top, a row of the visitor's own photos with an upload button. In the middle, a grid of Alphonse Mucha Art Nouveau posters to pick a style from, and a Create Art with AI button. At the bottom, a gallery of the resulting synthesized artworks."
+             width="900" height="885" loading="eager" decoding="async">
+        <figcaption>Figure (b) from the paper &mdash; the CAAI web page. Step one picks the photo, step two picks the painting
+          whose style will be borrowed, and the strip along the bottom is the visitor&rsquo;s own
+          gallery, filled with what they made during the visit.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===================== Motivation ===================== -->
+    <section class="section" aria-labelledby="about-h">
+      <h2 class="section__title" id="about-h">Why we built it</h2>
+
+      <p>COVID-19 pushed museums online faster than they had planned to go, and online education
+        went with them. What mostly arrived was the gallery wall transplanted into a browser:
+        high-resolution images, wall text beside them, a visitor who scrolls. That is a reasonable
+        way to look at art and a poor way to learn it.</p>
+
+      <p>Constructivist education starts from the opposite assumption &mdash; that people build
+        understanding by making things and tying new material to what they already have, not by
+        receiving it. The question this project asked is whether AI image synthesis gives an
+        online museum the one thing it had been missing to work that way: a cheap, immediate way
+        for every visitor to produce something of their own inside the exhibition, out of
+        material that is already theirs.</p>
+
+      <!-- Jiyoung: a short paragraph on your own contribution (study design,
+           measures, analysis) would sit well right here. -->
+    </section>
+
+    <!-- ===================== The visit ===================== -->
+    <section class="section" aria-labelledby="features-h">
+      <h2 class="section__title" id="features-h">Three steps through the museum</h2>
+
+      <div class="features">
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">01</p>
+          <div>
+            <h3 class="feature__title">Bring your own photograph</h3>
+            <p>The visit opens by asking for a picture rather than offering one. A visitor
+              uploads a photo from their own camera roll &mdash; a street, a café table, a
+              friend &mdash; and picks the one they want to work with.</p>
+            <ul class="bullets">
+              <li>Starting from the visitor&rsquo;s own material is the constructivist move: the
+                new thing attaches to something they already care about.</li>
+              <li>It is also the manipulation the study turns on, since one condition hands
+                visitors a photo instead of letting them bring one.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">02</p>
+          <div>
+            <h3 class="feature__title">Borrow a painting&rsquo;s style</h3>
+            <p>A grid of Alphonse Mucha&rsquo;s Art Nouveau posters stands in for the exhibition
+              itself. Choosing one is choosing a style, and the system synthesizes the
+              visitor&rsquo;s photograph in it.</p>
+            <ul class="bullets">
+              <li>Looking closely at a painting becomes necessary rather than virtuous &mdash;
+                you have to decide which one you want your own picture to look like.</li>
+              <li>The comparison is immediate: the source painting and the synthesized result
+                sit on the same page.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">03</p>
+          <div>
+            <h3 class="feature__title">Leave with a gallery</h3>
+            <p>Each result is added to a personal gallery that builds up across the visit, so the
+              museum ends with a small body of work that belongs to the visitor.</p>
+            <ul class="bullets">
+              <li>The output is the record of the visit, which is a different souvenir from a
+                list of paintings you scrolled past.</li>
+              <li>It gives the session a shape: arrive, make, look at what you made.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===================== Study ===================== -->
+    <section class="section" aria-labelledby="study-h">
+      <h2 class="section__title" id="study-h">How it was tested</h2>
+
+      <p>Rather than argue the design, we ran it. Each participant visited exactly one of three
+        web-based museums, which differed only in how much of the making they were allowed to
+        do.</p>
+
+      <dl class="timeline">
+        <dt>Participants</dt>
+        <dd>
+          <span class="timeline__role">83</span>
+          <span class="timeline__detail">Between-subjects: one museum each, no comparison
+            across conditions by the visitor</span>
+        </dd>
+
+        <dt>Conditions</dt>
+        <dd>
+          <span class="timeline__role">Three online museums</span>
+          <span class="timeline__detail">(1) no AI image synthesis &middot; (2) synthesis applied
+            to photos the museum supplied &middot; (3) synthesis applied to photos the visitor
+            uploaded themselves</span>
+        </dd>
+
+        <dt>Measures</dt>
+        <dd>
+          <span class="timeline__role">Motivation, satisfaction, constructivist experience</span>
+          <span class="timeline__detail">Self-reported after the visit</span>
+        </dd>
+      </dl>
+    </section>
+
+    <!-- ===================== Findings ===================== -->
+    <section class="section" aria-labelledby="findings-h">
+      <h2 class="section__title" id="findings-h">What we found</h2>
+
+      <p>The self-uploaded condition came out ahead of both others: those visitors reported
+        higher motivation, higher satisfaction, and an experience they described in more
+        constructivist terms. Synthesis alone was not what did it &mdash; the condition that
+        applied the same AI to museum-supplied photos did not produce the same effect.</p>
+
+      <p>That is the useful part of the result for anyone building one of these. The technology
+        is not the active ingredient; whose material goes into it is. An online museum that
+        generates impressive images for a visitor is doing something different from one that
+        helps a visitor make an image of their own, and only the second reads as learning.</p>
+
+      <p class="actions">
+        <a class="button" href="../#featured">
+          <span aria-hidden="true">&larr;</span> Back to featured work
+        </a>
+      </p>
+    </section>
+
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2026 Jiyoung Yun</p>
+  </div>
+</footer>
+
+<script src="../js/main.js" defer></script>
+</body>
+</html>

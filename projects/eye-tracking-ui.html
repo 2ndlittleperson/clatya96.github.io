@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Eye-Tracking-Informed UI Redesign for a 3D Aerial Combat Game &mdash; Jiyoung Yun</title>
+<meta name="description" content="A user research project comparing players' gaze patterns to simplify combat information and help newcomers understand and engage with the game's challenges.">
+<meta name="author" content="Jiyoung Yun">
+
+<link rel="canonical" href="https://clatya96.github.io/projects/eye-tracking-ui.html">
+<link rel="alternate" hreflang="en" href="https://clatya96.github.io/projects/eye-tracking-ui.html">
+<link rel="alternate" hreflang="ko" href="https://clatya96.github.io/ko/projects/eye-tracking-ui.html">
+<link rel="alternate" hreflang="x-default" href="https://clatya96.github.io/projects/eye-tracking-ui.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Eye-Tracking-Informed UI Redesign for a 3D Aerial Combat Game">
+<meta property="og:description" content="Comparing players' gaze patterns to simplify combat information and help newcomers engage with the game's challenges.">
+<meta property="og:url" content="https://clatya96.github.io/projects/eye-tracking-ui.html">
+<meta property="og:image" content="https://clatya96.github.io/assets/featured-aerial.jpg">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+<!-- Theme bootstrap. Must run before the stylesheet so data-theme is set
+     before first paint, otherwise dark-mode users get a white flash.
+     try/catch because localStorage throws in Safari private browsing. -->
+<script>
+  try {
+    var t = localStorage.getItem("theme");
+    if (t) document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__name" href="../">Jiyoung Yun</a>
+
+    <nav class="site-nav" aria-label="Sections">
+      <a href="../#about">About</a>
+      <a href="../#education">Education</a>
+      <a href="../#publications">Publications</a>
+      <a href="../#featured" aria-current="location">Featured</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+
+    <div class="site-header__tools">
+      <p class="lang-switch">
+        <span aria-current="true">EN</span>
+        <span class="lang-switch__sep" aria-hidden="true">|</span>
+        <a href="../ko/projects/eye-tracking-ui.html" hreflang="ko" lang="ko">KO</a>
+      </p>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+        <span aria-hidden="true">&#9790;</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <article class="project">
+
+    <nav class="backlink" aria-label="Breadcrumb">
+      <a href="../#featured"><span aria-hidden="true">&larr;</span> Featured work</a>
+    </nav>
+
+    <header class="section project__head">
+      <p class="project__eyebrow">Eye tracking &middot; Game UI &middot; 2026</p>
+      <h1 class="project__title">Eye-Tracking-Informed UI Redesign for a 3D Aerial
+        Combat Game</h1>
+      <p class="project__lede">A user research project comparing players&rsquo; gaze patterns to
+        simplify combat information and help newcomers understand and engage with the
+        game&rsquo;s challenges.</p>
+
+      <dl class="timeline project__meta">
+        <dt>Period</dt>
+        <dd>
+          <span class="timeline__role">December 2025 &ndash; April 2026</span>
+          <span class="timeline__detail">Roughly three months between the before and after
+            evaluation sessions</span>
+        </dd>
+
+        <dt>Role</dt>
+        <dd>
+          <span class="timeline__role">Research Lead</span>
+          <span class="timeline__detail">Study design, data collection, interviews, gaze
+            analysis, statistical testing, and evaluation</span>
+        </dd>
+
+        <dt>Collaboration</dt>
+        <dd>
+          <span class="timeline__role">UI redesign by the design team</span>
+        </dd>
+
+        <dt>Participants</dt>
+        <dd>
+          <span class="timeline__role">40 players</span>
+        </dd>
+      </dl>
+
+      <p class="note">The game title used throughout is fictitious, and the images were newly
+        created to illustrate this project.</p>
+    </header>
+
+    <!-- ===================== Hero figure ===================== -->
+    <section class="section" aria-labelledby="interface-h">
+      <h2 class="section__title" id="interface-h">The interface in question</h2>
+
+      <figure class="figure">
+        <img src="../assets/aerial-hud-before.jpg"
+             alt="Diagram of the original combat HUD: monster status at the top, a monster
+                  location marker and weapon arcs around the central crosshair, a location
+                  gauge on the right, character status at the bottom centre and bottom left,
+                  item info at the bottom left and weapons info at the bottom right."
+             width="1600" height="995" loading="eager" decoding="async">
+        <figcaption>The original combat HUD presented a wide range of information at
+          once.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===================== About ===================== -->
+    <section class="section" aria-labelledby="about-h">
+      <h2 class="section__title" id="about-h">About the project</h2>
+
+      <p>AIR MONSTER initially displayed a wide range of combat information to give players
+        comprehensive support. However, players reported difficulty understanding the individual
+        UI elements and perceived the game as difficult.</p>
+
+      <p>I investigated how players with different levels of combat understanding used this
+        information. By comparing their gaze patterns and interview responses, I identified the
+        information that proficient players consistently consulted and used these findings to
+        guide a simpler interface for newcomers.</p>
+
+      <p>This project introduced eye tracking and gaze analysis as new research methods within
+        the company. I independently conducted the research, while the design team developed the
+        revised UI.</p>
+    </section>
+
+    <!-- ===================== Phases ===================== -->
+    <section class="section" aria-labelledby="phases-h">
+      <h2 class="section__title" id="phases-h">How it ran</h2>
+
+      <div class="features">
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">01</p>
+          <div>
+            <h3 class="feature__title">Understanding how proficient players use
+              information</h3>
+            <p>I collected eye-tracking data during gameplay and conducted interviews to examine
+              how players understood and monitored combat information.</p>
+            <p>Players who understood the game well tended to focus on four areas: the monster
+              itself, character status, monster status, and ammunition information. Their gaze
+              patterns provided a reference for understanding how players coordinated attention
+              between the combat target and supporting information.</p>
+            <p>Interpreting these patterns alongside interview responses helped identify three
+              UI information categories to prioritize in the redesign.</p>
+
+            <figure class="figure">
+              <img src="../assets/aerial-gaze-before.jpg"
+                   alt="Left: Example of a proficient player's gaze heatmap on the original HUD, concentrated on the monster at the centre, with smaller hotspots on character status, monster status and ammunition. Right: Example of a novice player's gaze heatmap on the original HUD, scattered widely across the screen with no clear focus."
+                   width="2400" height="751" loading="lazy" decoding="async">
+              <div class="figure__labels">
+                <p>Example of a proficient player</p>
+                <p>Example of a novice player</p>
+              </div>
+              <figcaption>Examples of gaze on the original HUD. The proficient player stayed on
+                the monster and a few status areas, while the novice player&rsquo;s attention
+                scattered across the screen.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">02</p>
+          <div>
+            <h3 class="feature__title">Simplifying the interface around key information</h3>
+            <p>Based on these findings, the design team reorganized the interface around
+              character status, monster status, and ammunition information.</p>
+            <p>The redesigned UI presented a smaller set of combat information, supporting
+              players in monitoring the monster and consulting relevant status information
+              during combat. I provided the research findings and information priorities, while
+              the design team was responsible for the visual redesign.</p>
+
+            <figure class="figure">
+              <img src="../assets/aerial-hud-after.jpg"
+                   alt="Diagram of the simplified HUD: monster status at the top, a monster
+                        location marker above a clear central crosshair, item info and character
+                        status at the bottom left, and weapons info at the bottom right."
+                   width="1600" height="992" loading="lazy" decoding="async">
+              <figcaption>The simplified interface the design team built on the findings.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">03</p>
+          <div>
+            <h3 class="feature__title">Evaluating the experience of newcomers</h3>
+            <p>The same 40 participants took part in evaluations before and after the redesign,
+              with approximately three months between sessions. I evaluated the revised
+              interface through eye-tracking data, interviews, and statistical comparisons of
+              combat performance.</p>
+            <p>Players who were initially unfamiliar with the game reported that the simplified
+              interface helped them focus on combat using the information provided. Their gaze
+              distributions also became more similar to those of proficient players, and combat
+              clear rates increased following the redesign.</p>
+
+            <figure class="figure">
+              <img src="../assets/aerial-gaze-after.jpg"
+                   alt="Left: Example of a proficient player's gaze heatmap on the simplified HUD, concentrated around the crosshair. Right: Example of a novice player's gaze heatmap on the simplified HUD, gathered around the central combat area, with a hotspot on weapons info."
+                   width="2400" height="743" loading="lazy" decoding="async">
+              <div class="figure__labels">
+                <p>Example of a proficient player</p>
+                <p>Example of a novice player</p>
+              </div>
+              <figcaption>Examples of gaze on the simplified HUD. The novice player&rsquo;s
+                attention gathered around the combat area, closer to the proficient
+                player&rsquo;s pattern.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===================== Outcome ===================== -->
+    <section class="section" aria-labelledby="outcome-h">
+      <h2 class="section__title" id="outcome-h">What it changed</h2>
+
+      <p>Together, these findings supported the simplified UI as a way to make combat more
+        approachable for newcomers. By helping players understand and use essential information,
+        the redesign enabled them to engage more effectively with the game&rsquo;s combat
+        challenges.</p>
+
+      <p class="actions">
+        <a class="button" href="../#featured">
+          <span aria-hidden="true">&larr;</span> Back to featured work
+        </a>
+      </p>
+    </section>
+
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2026 Jiyoung Yun</p>
+  </div>
+</footer>
+
+<script src="../js/main.js" defer></script>
+</body>
+</html>

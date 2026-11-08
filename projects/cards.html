@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>CARDS: Comprehensive AR Docent System &mdash; Jiyoung Yun</title>
+<meta name="description" content="Case study of CARDS, an augmented reality docent system that guides exhibition visitors with localized AR cues, distance-based description layers, and rotation-based access to reference works. ISMAR-Adjunct 2022.">
+<meta name="author" content="Jiyoung Yun">
+
+<link rel="canonical" href="https://clatya96.github.io/projects/cards.html">
+<link rel="alternate" hreflang="en" href="https://clatya96.github.io/projects/cards.html">
+<link rel="alternate" hreflang="ko" href="https://clatya96.github.io/ko/projects/cards.html">
+<link rel="alternate" hreflang="x-default" href="https://clatya96.github.io/projects/cards.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="CARDS: Comprehensive AR Docent System">
+<meta property="og:description" content="An AR docent that uses localized cues, distance, and body orientation to guide exhibition visitors through a single artwork.">
+<meta property="og:url" content="https://clatya96.github.io/projects/cards.html">
+<meta property="og:image" content="https://clatya96.github.io/assets/featured-cards.jpg">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+<!-- Theme bootstrap. Must run before the stylesheet so data-theme is set
+     before first paint, otherwise dark-mode users get a white flash.
+     try/catch because localStorage throws in Safari private browsing. -->
+<script>
+  try {
+    var t = localStorage.getItem("theme");
+    if (t) document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "CARDS: Comprehensive AR Docent System",
+  "headline": "CARDS: Comprehensive AR Docent System",
+  "inLanguage": "en",
+  "datePublished": "2022-10",
+  "author": [
+    { "@type": "Person", "name": "Seung Un Lee" },
+    { "@type": "Person", "name": "Jiyoung Yun", "url": "https://clatya96.github.io/" },
+    { "@type": "Person", "name": "Dain Kim" },
+    { "@type": "Person", "name": "D. Kim" },
+    { "@type": "Person", "name": "S. Y. Oh" },
+    { "@type": "Person", "name": "S. H. Yoon" }
+  ],
+  "isPartOf": {
+    "@type": "PublicationEvent",
+    "name": "2022 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)"
+  },
+  "pagination": "739-743",
+  "publisher": { "@type": "Organization", "name": "IEEE" },
+  "sameAs": "https://ieeexplore.ieee.org/abstract/document/9974452",
+  "image": "https://clatya96.github.io/assets/featured-cards.jpg"
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__name" href="../">Jiyoung Yun</a>
+
+    <nav class="site-nav" aria-label="Sections">
+      <a href="../#about">About</a>
+      <a href="../#education">Education</a>
+      <a href="../#publications">Publications</a>
+      <a href="../#featured" aria-current="location">Featured</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+
+    <div class="site-header__tools">
+      <p class="lang-switch">
+        <span aria-current="true">EN</span>
+        <span class="lang-switch__sep" aria-hidden="true">|</span>
+        <a href="../ko/projects/cards.html" hreflang="ko" lang="ko">KO</a>
+      </p>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+        <span aria-hidden="true">&#9790;</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <!-- ===================== Hero ===================== -->
+  <article class="project">
+
+    <nav class="backlink" aria-label="Breadcrumb">
+      <a href="../#featured"><span aria-hidden="true">&larr;</span> Featured work</a>
+    </nav>
+
+    <header class="section project__head">
+      <p class="project__eyebrow">AR &middot; Museum experience &middot; 2022</p>
+      <h1 class="project__title">CARDS: Comprehensive AR Docent System</h1>
+      <p class="project__lede">An augmented reality docent that guides a visitor through one
+        artwork the way a human guide would &mdash; in sequence, at the right depth, with the
+        right comparison &mdash; using nothing but where the visitor stands and which way they
+        turn.</p>
+
+      <dl class="timeline project__meta">
+        <dt>Role</dt>
+        <dd>
+          <span class="timeline__role">Co-first author</span>
+          <span class="timeline__detail">Three-person team: Seung Un Lee, Jiyoung Yun, Dain Kim</span>
+        </dd>
+
+        <dt>Context</dt>
+        <dd>
+          <span class="timeline__role">KAIST CTP445, Augmented Reality</span>
+          <span class="timeline__detail">Course project, later extended for publication</span>
+        </dd>
+
+        <dt>Published</dt>
+        <dd>
+          <span class="timeline__role" lang="en">2022 IEEE ISMAR-Adjunct</span>
+          <span class="timeline__detail">Lee, S. U., <strong>Yun, J.</strong>, Kim, D., Kim, D.,
+            Oh, S. Y., &amp; Yoon, S. H. (2022). <cite>CARDS: Comprehensive AR Docent
+            System.</cite> In <span class="pub__venue">2022 IEEE International Symposium on Mixed
+            and Augmented Reality Adjunct (ISMAR-Adjunct)</span> (pp. 739&ndash;743). IEEE.</span>
+        </dd>
+      </dl>
+
+      <p class="actions">
+        <a class="button" href="https://ieeexplore.ieee.org/abstract/document/9974452">
+          Read the paper <span class="button__hint">IEEE Xplore &#8599;</span>
+        </a>
+        <a class="button" href="https://www.figma.com/proto/uzNRzh0kQCecuUKDgM5oQ0/Untitled?page-id=0%3A1&amp;node-id=0-1&amp;viewport=-7%2C562%2C0.85&amp;scaling=scale-down&amp;starting-point-node-id=2%3A146">
+          Try the prototype <span class="button__hint">Figma &#8599;</span>
+        </a>
+      </p>
+    </header>
+
+    <!-- ===================== Figure ===================== -->
+    <section class="section" aria-labelledby="system-h">
+      <h2 class="section__title" id="system-h">The system</h2>
+
+      <figure class="figure">
+        <img src="../assets/featured-cards.jpg"
+             alt="Three panels. (A) A hand holds a phone in front of a framed painting, with a red AR pin shown on the screen. (B) The same painting seen from far to close, with a pin configuration that changes at each distance. (C) The painting at 90 degrees and a reference work appearing as the phone is rotated to 94 degrees."
+             width="550" height="317" loading="eager" decoding="async">
+        <figcaption>The three AR-specific interactions that make up CARDS:
+          <strong>(A)</strong> context-based sequential pins,
+          <strong>(B)</strong> position-based pin configuration, and
+          <strong>(C)</strong> orientation-based visual aids.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===================== Overview ===================== -->
+    <section class="section" aria-labelledby="about-h">
+      <h2 class="section__title" id="about-h">Why we built it</h2>
+
+      <p>Augmented reality has been generous to exhibitions on the spectacle side: paintings that
+        animate, figures that step out of their frames, galleries that rebuild themselves around
+        you. The educational side has had much less attention. A visitor with a mobile guide is
+        usually handed the same block of text as everyone else, in the same order, no matter where
+        they are standing or what part of the canvas they are actually looking at.</p>
+
+      <p>CARDS asks what happens if the docent&rsquo;s job &mdash; deciding what to point at, how
+        deep to go, and what to compare the work with &mdash; is the thing the AR is designed
+        around. The result is a guide that reads the visitor&rsquo;s position and orientation as
+        input, so moving through the room <em>is</em> the interface. Nothing is buried in a menu,
+        and attention stays on the artwork rather than on the phone.</p>
+
+      <!-- Jiyoung: a short paragraph on your own contribution (study design,
+           prototyping, the evaluation) would sit well right here. -->
+    </section>
+
+    <!-- ===================== Features ===================== -->
+    <section class="section" aria-labelledby="features-h">
+      <h2 class="section__title" id="features-h">Three interactions</h2>
+
+      <div class="features">
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">01</p>
+          <div>
+            <h3 class="feature__title">Localized guides with AR cues</h3>
+            <p>Numbered pins sit on the parts of the canvas a trained guide would point to, in the
+              order a guide would use them, so the sequence carries the reading rather than a
+              paragraph of text.</p>
+            <ul class="bullets">
+              <li>Pins change colour once they have been opened, so what is left to see is
+                legible at a glance.</li>
+              <li>Visitors can like individual pins; the totals roll up into a single heart
+                indicator above the work, making collective attention visible.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">02</p>
+          <div>
+            <h3 class="feature__title">Layer change by distance</h3>
+            <p>Standing back gives the wide reading &mdash; subject, period, why the work matters.
+              Walking closer swaps the overlay for progressively finer detail, down to brushwork
+              and iconography.</p>
+            <ul class="bullets">
+              <li>Scope maps onto physical distance, so general-to-specific needs no control to
+                operate and no instruction to understand.</li>
+              <li>Pairing distance-triggered layers with the sequential pins is the combination
+                the paper puts forward as new.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">03</p>
+          <div>
+            <h3 class="feature__title">Reference works by rotation angle</h3>
+            <p>Turning away from the painting by a few degrees brings a related work into view
+              beside it, instead of sending the visitor off to a search screen and back.</p>
+            <ul class="bullets">
+              <li>Comparison happens inside one continuous experience, so the visitor never loses
+                their place in the guide.</li>
+              <li>The gesture is the idea made literal: looking at a work from a different angle
+                is what shows you a different picture.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===================== Takeaway ===================== -->
+    <section class="section" aria-labelledby="takeaway-h">
+      <h2 class="section__title" id="takeaway-h">What it argues</h2>
+
+      <p>Taken together the three interactions treat the visitor&rsquo;s body as the control
+        surface: position sets depth, orientation sets breadth, and the pin sequence sets order.
+        That is a different proposition from an AR guide that simply overlays the same audio tour
+        on a canvas, and it is the part of the work the ISMAR submission argues for.</p>
+
+      <p class="actions">
+        <a class="button" href="../#featured">
+          <span aria-hidden="true">&larr;</span> Back to featured work
+        </a>
+      </p>
+    </section>
+
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2026 Jiyoung Yun</p>
+  </div>
+</footer>
+
+<script src="../js/main.js" defer></script>
+</body>
+</html>

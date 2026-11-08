@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>3D 공중전 게임의 시선 추적 기반 UI 리디자인 &mdash; 윤지영</title>
+<meta name="description" content="플레이어의 시선 패턴을 비교해 전투 정보를 단순화하고, 신규 플레이어가 게임의 도전을 이해하고 즐길 수 있도록 도운 사용자 연구.">
+<meta name="author" content="윤지영">
+
+<link rel="canonical" href="https://clatya96.github.io/ko/projects/eye-tracking-ui.html">
+<link rel="alternate" hreflang="en" href="https://clatya96.github.io/projects/eye-tracking-ui.html">
+<link rel="alternate" hreflang="ko" href="https://clatya96.github.io/ko/projects/eye-tracking-ui.html">
+<link rel="alternate" hreflang="x-default" href="https://clatya96.github.io/projects/eye-tracking-ui.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="3D 공중전 게임의 시선 추적 기반 UI 리디자인">
+<meta property="og:description" content="플레이어의 시선 패턴을 비교해 전투 정보를 단순화하고, 신규 플레이어가 게임의 도전을 즐길 수 있도록 도운 연구.">
+<meta property="og:url" content="https://clatya96.github.io/ko/projects/eye-tracking-ui.html">
+<meta property="og:image" content="https://clatya96.github.io/assets/featured-aerial.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<!-- 테마 부트스트랩: 스타일시트보다 먼저 실행되어야 첫 페인트 전에
+     data-theme 이 적용되고, 다크 모드에서 흰 화면이 번쩍이지 않습니다. -->
+<script>
+  try {
+    var t = localStorage.getItem("theme");
+    if (t) document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
+
+<link rel="stylesheet" href="../../css/style.css">
+
+</head>
+
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__name" href="../">윤지영</a>
+
+    <nav class="site-nav" aria-label="섹션">
+      <a href="../#about">소개</a>
+      <a href="../#education">학력 및 경력</a>
+      <a href="../#publications">연구 실적</a>
+      <a href="../#featured" aria-current="location">주요 연구</a>
+      <a href="../#contact">연락처</a>
+    </nav>
+
+    <div class="site-header__tools">
+      <p class="lang-switch">
+        <a href="../../projects/eye-tracking-ui.html" hreflang="en" lang="en">EN</a>
+        <span class="lang-switch__sep" aria-hidden="true">|</span>
+        <span aria-current="true">KO</span>
+      </p>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="다크 모드로 전환">
+        <span aria-hidden="true">&#9790;</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <article class="project">
+
+    <nav class="backlink" aria-label="이동 경로">
+      <a href="../#featured"><span aria-hidden="true">&larr;</span> 주요 연구</a>
+    </nav>
+
+    <header class="section project__head">
+      <p class="project__eyebrow">시선 추적 &middot; 게임 UI &middot; 2026</p>
+      <h1 class="project__title">3D 공중전 게임의 시선 추적 기반 UI 리디자인</h1>
+      <p class="project__lede">플레이어의 시선 패턴을 비교해 전투 정보를 단순화하고,
+        신규 플레이어가 게임의 도전을 이해하고 즐길 수 있도록 도운 사용자 연구입니다.</p>
+
+      <dl class="timeline project__meta">
+        <dt>기간</dt>
+        <dd>
+          <span class="timeline__role">2025년 12월 &ndash; 2026년 4월</span>
+          <span class="timeline__detail">리디자인 전후 평가 세션 사이 간격은 약 3개월</span>
+        </dd>
+
+        <dt>역할</dt>
+        <dd>
+          <span class="timeline__role">리서치 리드</span>
+          <span class="timeline__detail">연구 설계, 데이터 수집, 인터뷰, 시선 분석, 통계 검정,
+            평가</span>
+        </dd>
+
+        <dt>협업</dt>
+        <dd>
+          <span class="timeline__role">UI 리디자인은 디자인팀 담당</span>
+        </dd>
+
+        <dt>참가자</dt>
+        <dd>
+          <span class="timeline__role">플레이어 40명</span>
+        </dd>
+      </dl>
+
+      <p class="note">본문에 등장하는 게임 타이틀은 가상이며, 이미지는 이 프로젝트를 설명하기
+        위해 새로 제작한 것입니다.</p>
+    </header>
+
+    <!-- ===================== 대상 인터페이스 ===================== -->
+    <section class="section" aria-labelledby="interface-h">
+      <h2 class="section__title" id="interface-h">문제가 된 인터페이스</h2>
+
+      <figure class="figure">
+        <img src="../../assets/aerial-hud-before.jpg"
+             alt="기존 전투 HUD 도식: 상단에 몬스터 상태, 중앙 조준점 주변에 몬스터 위치 표시와
+                  무기 정보 호, 오른쪽에 위치 게이지, 하단 중앙과 왼쪽에 캐릭터 상태, 왼쪽
+                  아래에 아이템 정보, 오른쪽 아래에 무기 정보가 배치되어 있습니다."
+             width="1600" height="995" loading="eager" decoding="async">
+        <figcaption>기존 전투 HUD는 많은 정보를 한꺼번에 보여주었습니다.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===================== 소개 ===================== -->
+    <section class="section" aria-labelledby="about-h">
+      <h2 class="section__title" id="about-h">프로젝트 소개</h2>
+
+      <p>AIR MONSTER는 초기에 플레이어를 폭넓게 지원하기 위해 많은 전투 정보를 한꺼번에
+        보여주었습니다. 그러나 플레이어들은 개별 UI 요소를 이해하기 어렵다고 응답했고, 게임이
+        어렵다고 느끼고 있었습니다.</p>
+
+      <p>저는 전투 이해도가 서로 다른 플레이어들이 이 정보를 어떻게 사용하는지 조사했습니다.
+        시선 패턴과 인터뷰 응답을 비교해 숙련된 플레이어가 일관되게 확인하는 정보를 찾아냈고,
+        이를 근거로 신규 플레이어를 위한 더 단순한 인터페이스의 방향을 제시했습니다.</p>
+
+      <p>이 프로젝트는 시선 추적과 시선 분석을 사내에 새로운 연구 방법으로 도입했습니다.
+        연구는 제가 단독으로 수행했고, 수정된 UI는 디자인팀이 제작했습니다.</p>
+    </section>
+
+    <!-- ===================== 진행 단계 ===================== -->
+    <section class="section" aria-labelledby="phases-h">
+      <h2 class="section__title" id="phases-h">진행 과정</h2>
+
+      <div class="features">
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">01</p>
+          <div>
+            <h3 class="feature__title">숙련된 플레이어의 정보 사용 방식 이해하기</h3>
+            <p>플레이 중 시선 추적 데이터를 수집하고 인터뷰를 진행해, 플레이어가 전투 정보를
+              어떻게 이해하고 확인하는지 살펴봤습니다.</p>
+            <p>게임을 잘 이해하는 플레이어들은 몬스터 자체, 캐릭터 상태, 몬스터 상태, 탄약
+              정보의 네 영역에 주로 집중했습니다. 이들의 시선 패턴은 플레이어가 전투 대상과
+              보조 정보 사이에서 주의를 어떻게 배분하는지 이해할 기준이 되었습니다.</p>
+            <p>이 패턴을 인터뷰 응답과 함께 해석해, 리디자인에서 우선해야 할 UI 정보 범주 세
+              가지를 도출했습니다.</p>
+
+            <figure class="figure">
+              <img src="../../assets/aerial-gaze-before.jpg"
+                   alt="왼쪽: 기존 HUD에서의 숙련 플레이어 시선 히트맵 예시. 중앙의 몬스터에 집중되어 있고, 캐릭터 상태, 몬스터 상태, 탄약 정보에 작은 집중 영역이 있습니다. 오른쪽: 기존 HUD에서의 초보 플레이어 시선 히트맵 예시. 뚜렷한 초점 없이 화면 전체에 넓게 흩어져 있습니다."
+                   width="2400" height="751" loading="lazy" decoding="async">
+              <div class="figure__labels">
+                <p>숙련 플레이어 예시</p>
+                <p>초보 플레이어 예시</p>
+              </div>
+              <figcaption>기존 HUD에서의 시선 분포 예시. 숙련 플레이어는 몬스터와 몇몇 상태
+                정보에 머문 반면, 초보 플레이어의 시선은 화면 전체로 흩어졌습니다.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">02</p>
+          <div>
+            <h3 class="feature__title">핵심 정보 중심으로 인터페이스 단순화하기</h3>
+            <p>이 결과를 바탕으로 디자인팀은 캐릭터 상태, 몬스터 상태, 탄약 정보를 중심으로
+              인터페이스를 재구성했습니다.</p>
+            <p>리디자인된 UI는 더 적은 양의 전투 정보를 보여주면서, 플레이어가 전투 중 몬스터를
+              주시하고 필요한 상태 정보를 확인하도록 도왔습니다. 저는 연구 결과와 정보
+              우선순위를 제공했고, 시각적 리디자인은 디자인팀이 담당했습니다.</p>
+
+            <figure class="figure">
+              <img src="../../assets/aerial-hud-after.jpg"
+                   alt="단순화된 HUD 도식: 상단에 몬스터 상태, 비워진 중앙 조준점 위에 몬스터 위치
+                        표시, 왼쪽 아래에 아이템 정보와 캐릭터 상태, 오른쪽 아래에 무기 정보가
+                        배치되어 있습니다."
+                   width="1600" height="992" loading="lazy" decoding="async">
+              <figcaption>연구 결과를 바탕으로 디자인팀이 만든 단순화된 인터페이스.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">03</p>
+          <div>
+            <h3 class="feature__title">신규 플레이어의 경험 평가하기</h3>
+            <p>동일한 참가자 40명이 리디자인 전과 후의 평가에 모두 참여했고, 두 세션 사이에는
+              약 3개월의 간격이 있었습니다. 저는 시선 추적 데이터, 인터뷰, 전투 성과의 통계적
+              비교를 통해 수정된 인터페이스를 평가했습니다.</p>
+            <p>처음 게임을 접한 플레이어들은 단순화된 인터페이스 덕분에 주어진 정보를 활용해
+              전투에 집중할 수 있었다고 응답했습니다. 이들의 시선 분포도 숙련된 플레이어와 더
+              비슷해졌고, 리디자인 이후 전투 클리어율도 높아졌습니다.</p>
+
+            <figure class="figure">
+              <img src="../../assets/aerial-gaze-after.jpg"
+                   alt="왼쪽: 단순화된 HUD에서의 숙련 플레이어 시선 히트맵 예시. 조준점 주변에 집중되어 있습니다. 오른쪽: 단순화된 HUD에서의 초보 플레이어 시선 히트맵 예시. 중앙 전투 영역 주변으로 모였고, 무기 정보에도 집중 영역이 있습니다."
+                   width="2400" height="743" loading="lazy" decoding="async">
+              <div class="figure__labels">
+                <p>숙련 플레이어 예시</p>
+                <p>초보 플레이어 예시</p>
+              </div>
+              <figcaption>단순화된 HUD에서의 시선 분포 예시. 초보 플레이어의 시선이 전투 영역
+                주변으로 모여 숙련 플레이어의 패턴에 가까워졌습니다.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===================== 성과 ===================== -->
+    <section class="section" aria-labelledby="outcome-h">
+      <h2 class="section__title" id="outcome-h">바뀐 것</h2>
+
+      <p>이러한 결과는 단순화된 UI가 신규 플레이어에게 전투를 더 가깝게 만드는 방법임을
+        뒷받침합니다. 필수적인 정보를 이해하고 활용하도록 도움으로써, 리디자인은 플레이어가
+        게임의 전투 도전에 더 깊이 몰입할 수 있게 했습니다.</p>
+
+      <p class="actions">
+        <a class="button" href="../#featured">
+          <span aria-hidden="true">&larr;</span> 주요 연구로 돌아가기
+        </a>
+      </p>
+    </section>
+
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2026 윤지영</p>
+  </div>
+</footer>
+
+<script src="../../js/main.js" defer></script>
+</body>
+</html>

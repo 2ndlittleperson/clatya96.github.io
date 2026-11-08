@@ -23,7 +23,7 @@ Consequences, good and bad:
 | ❌ | The English and Korean pages each contain a full copy of the markup, so a structural change is made twice. |
 | ❌ | No templating: adding a publication means copy-pasting a `<li>` block rather than adding a row to a YAML file. |
 
-The duplication is the real cost. It is accepted because the content is small and stable (6 jobs/degrees, 6 publications, 2 featured cards) and because the alternative — generating the pages from data — means a build step, which means a toolchain, which is the thing being avoided. §6.2 describes a mitigation.
+The duplication is the real cost. It is accepted because the content is small and stable (6 jobs/degrees, 6 publications, 3 featured cards, 3 case studies) and because the alternative — generating the pages from data — means a build step, which means a toolchain, which is the thing being avoided. §6.2 describes a mitigation.
 
 ### 1.2 Rendering model
 
@@ -55,8 +55,17 @@ Github_website/
 ├── ko/
 │   └── index.html           Korean page
 │
+├── projects/                                                   ✅ added 2026-11-06
+│   ├── cards.html           CARDS case study, English
+│   ├── ai-art-museum.html   CHI 2022 case study, English
+│   └── eye-tracking-ui.html eye-tracking UI case study, English
+├── ko/projects/                                                ✅ added 2026-11-06
+│   ├── cards.html           CARDS case study, Korean
+│   ├── ai-art-museum.html   CHI 2022 case study, Korean
+│   └── eye-tracking-ui.html eye-tracking UI case study, Korean
+│
 ├── css/
-│   └── style.css            single stylesheet, 490 lines
+│   └── style.css            single stylesheet, 644 lines
 ├── js/
 │   └── main.js              117 lines
 │
@@ -323,7 +332,7 @@ Everything visual is a custom property at the top of the file, so colour and typ
   --bg: #fdfdfc;  --surface: #f4f3f0;  --text: #1c1b19;
   --muted: #6b6760;  --rule: #e2e0da;  --accent: #7a5c3e;
 
-  --measure: 46rem;   /* ~72 characters */
+  --measure: 58rem;   /* ~90 characters */
 }
 
 :root[data-theme="dark"] {
@@ -632,3 +641,131 @@ Items 3–9 are judgement calls on a document that academic and hiring readers w
 9. Report: what was verified and how, plus the four manual deploy steps.
 
 CSS comes before the HTML so that class names are settled once and both pages are written against a finished vocabulary, rather than the markup and styles being reconciled afterwards.
+
+---
+
+## 10. Project case-study pages (added 2026-11-06)
+
+### 10.1 What was added
+
+Two long-form pages per language, one for each `#featured` card:
+
+| Page | Paper |
+|---|---|
+| `projects/cards.html`, `ko/projects/cards.html` | CARDS, ISMAR-Adjunct 2022 |
+| `projects/ai-art-museum.html`, `ko/projects/ai-art-museum.html` | *Will AI Image Synthesis Technology Help Constructivist Education at The Online Art Museum?*, CHI EA 2022 |
+
+Each is reached by clicking its card in `#featured`. The card image, the card title, and a new `Read the case study →` link all point at it; the existing publisher link stays alongside, so the IEEE / ACM record is still one click away.
+
+The page follows the structure used by the co-author's own project page for the same work (<https://seungun.quv.kr/6>): title → credits and links → system figure → motivation → the three interactions → closing argument. The content is rewritten rather than copied; the facts (team, course, venue, pagination, the three features) are the paper's.
+
+### 10.2 Decisions
+
+| | |
+|---|---|
+| **Flat `projects/` directory, not `projects/cards/index.html`** | One file per case study, extension visible. `index.html` nesting buys a prettier URL and costs a directory per project plus another level of `../`. |
+| **No new assets** | The page reuses `assets/featured-cards.jpg`, the paper's own three-panel figure, as a single hero image with a caption that names panels (A), (B), (C). Cropping it into three per-feature figures was considered and rejected: the source is 550×317, so each panel would render at roughly 180 px wide. |
+| **No demo video** | The co-author's page has a *Demo Video* heading with no playable source behind it. Nothing was invented to fill the gap. |
+| **Contribution paragraph left as an HTML comment** | The published record establishes co-first authorship; it does not establish who did which part. There is a comment in both files marking where that paragraph goes. |
+| **Reuses `.timeline` for the credits block** | Role / Context / Published is the same date→entry shape the education list already describes, so it is the same `<dl>` and the same CSS. |
+| **Scroll-spy quietly no-ops** | `main.js` selects `.site-nav a[href^='#']`. On a case-study page the nav links are `../#about`, so the selector matches nothing and the function returns early. The `Featured` link carries `aria-current="location"` in the markup instead, which is what the CSS styles. |
+
+### 10.3 CSS added
+
+Section 9 of `css/style.css`, about 100 lines: `.backlink`, `.project__head/__eyebrow/__title/__lede/__meta`, `.actions`, `.figure`, `.features`/`.feature`/`.feature__num`/`.feature__title`, and `.bullets`. Plus `.card__title a` and `.card__links` in section 8, and four lines each in the mobile and print blocks. No new tokens, no new breakpoint.
+
+The second case study (`ai-art-museum.html`) added **no CSS at all** — it reuses the same vocabulary, including a second `.timeline` block for the study design. That is the check on whether the component set is the right size.
+
+`.bullets` draws its own marker (an em dash in `--accent`) because `list-style` is cleared globally in the normalize block.
+
+### 10.4 Verification
+
+Run 2026-11-06 against `python -m http.server` on `127.0.0.1:8765`, measured through the DevTools Protocol with `Emulation.setDeviceMetricsOverride` (not `--window-size`, for the reason recorded in §7).
+
+| | Result |
+|---|---|
+| Local paths | 48 local `href`/`src` references across all four pages resolve, including the `../../` depth on `ko/projects/`. |
+| HTTP | `/`, `/ko/`, `/projects/cards.html`, `/ko/projects/cards.html` all 200. |
+| Overflow | `scrollWidth === clientWidth` at 375 / 768 / 1280 px on all four pages; zero elements extending past the viewport. |
+| Console | No errors logged on any page at any width. |
+| HTML validity | W3C Nu validator: **0 errors, 0 warnings** on all four pages. |
+| Themes | Rendered in light and dark; the case study inherits every token, so there is nothing theme-specific to drift. |
+
+### 10.5 Sourcing the CHI 2022 content
+
+The ACM Digital Library is the authoritative source for this paper and it cannot be fetched: `dl.acm.org/doi/fullHtml/10.1145/3491101.3519788` returns **403** to a plain request and serves a Cloudflare interstitial to headless Chrome, which never clears (the same wall recorded in §7.1 V8). The page was therefore written from three sources that are reachable:
+
+| Source | What it supplied |
+|---|---|
+| Semantic Scholar graph API (`DOI:10.1145/3491101.3519788`) | the full abstract verbatim — the 83 participants, the three conditions, and the motivation/satisfaction/constructivist finding all come from it |
+| Crossref API | author order, the two institutional affiliations (SKKU Applied AI / HAII, KAIST GSCT), venue, `pp. 1–7` |
+| `assets/featured-chi.jpg` | the system walkthrough. It is figure (b) from the paper and its UI is in Korean, which is what establishes the two numbered steps, the Mucha Art Nouveau grid, and the personal gallery strip |
+
+Everything on the page traces to one of those three. What the paper says beyond its abstract — the related work, the exact measures and scales, any statistics — is not represented, because it could not be read. Nothing was inferred to fill the gap: there is no effect size, no significance claim, and no description of the synthesis model, since none of those are in the sources above.
+
+The figcaption credits the image as *figure (b) from the paper*, because the panel label is baked into the JPEG and would otherwise read as a stray artefact sitting above the site's own caption.
+
+---
+
+## 11. Eye-tracking UI case study (added 2026-11-06)
+
+### 11.1 What was added
+
+`projects/eye-tracking-ui.html` and `ko/projects/eye-tracking-ui.html`, plus a third `#featured` card on both index pages. Unlike the other two, this is not a paper: it is an in-house study, so there is no venue, no citation and no publisher link — the card carries only the case-study link.
+
+Source text: a draft written by the owner (not kept in the repo). Her wording is carried over close to verbatim rather than rewritten, since it is her own account of her own work. The structural additions are the `.project__meta` rows, the section headings, and the figure captions.
+
+### 11.2 The English `#featured` heading changed
+
+`Featured Publications` → **`Featured Work`**. Two of the three cards are papers and the third is not, so the old heading was now wrong. The Korean heading (`주요 연구`) already covered both and was left alone. The `#featured` id, the nav label, and the `← Featured work` back-links on the case-study pages were all already using the broader wording.
+
+### 11.3 Image placeholders
+
+*Superseded by §11.6: every placeholder below has since been replaced with a real image.*
+
+No images existed for this project at first, so the page ships five `<div class="placeholder">` boxes: the hero, one inside each of the three numbered phases, and the card thumbnail on both index pages.
+
+| | |
+|---|---|
+| **Dashed border, not solid** | A solid panel in `--surface` reads as a deliberate empty block. Dashed reads as *pending*. |
+| **`aspect-ratio` on the box** | The slot holds the shape the real image will occupy (16:9 in the body, 16:10 in the card), so dropping the file in does not reflow the page around it. |
+| **Filename printed inside the box** | The box names the file it is waiting for, so there is no lookup step between "I have the image" and "where does it go". Set in a monospace stack to read as a path. |
+| **Swap-in snippet in an HTML comment** | Each box sits under a comment holding the exact `<img>` tag, with the right `../` depth for that file. Replacing a box is copy, paste, fix `alt` and dimensions. |
+| **`og:image` falls back to `profile.jpg`** | Pointing it at a file that does not exist yet would give blank link previews. There is a comment in both `<head>` blocks saying to change it once `featured-aerial.jpg` lands. |
+
+A side effect worth knowing: the swap-in snippets contain `src="../assets/aerial-*.jpg"` inside comments, so a naive regex link-checker reports ten broken references. The checker has to strip `<!-- … -->` before resolving paths. Live markup: 110 local references, all resolving.
+
+### 11.4 CSS added
+
+`.placeholder`, `.placeholder__name`, `.placeholder__hint`, the two `.card__media .placeholder` overrides, and `.note` — 40 lines in section 9. Still no new tokens and no new breakpoint; the placeholder is `--surface` on `--rule`, and `.note` is a `--accent` left rule.
+
+### 11.5 Verification
+
+Run 2026-11-06, same method as §10.4.
+
+| | Result |
+|---|---|
+| Local paths | 110 live references across all eight pages resolve (10 further references exist only inside the placeholder swap-in comments). |
+| Overflow | `scrollWidth === clientWidth` at 375 / 768 / 1280 px on all eight pages. |
+| Console | No errors on any page at any width. |
+| HTML validity | W3C Nu validator: **0 errors** on all eight pages. |
+| Themes | Rendered light and dark; the placeholder uses the same `--surface` / `--rule` pair as `.card__media`, so it tracks the theme. |
+
+### 11.6 Figures added (2026-11-08)
+
+All five placeholders are now real images, and the swap-in comments are gone. The owner supplied full-resolution PNGs (about 5,300–11,000 px wide). These were scaled down to JPEG (quality 85) for `assets/`, and the PNGs were not kept in the repo.
+
+| Slot | File | Size |
+|---|---|---|
+| Hero: original HUD | `aerial-hud-before.jpg` | 1600×995 |
+| Phase 01: gaze on the original HUD | `aerial-gaze-before.jpg` | 2400×751 |
+| Phase 02: simplified HUD | `aerial-hud-after.jpg` | 1600×992 |
+| Phase 03: gaze on the simplified HUD | `aerial-gaze-after.jpg` | 2400×743 |
+| `#featured` card thumbnail and `og:image` | `featured-aerial.jpg` | 1100×688 |
+
+- **The heatmaps show single players.** Each gaze figure holds two panels side by side: a proficient player on the left and a novice player on the right. Each panel is one player's recording, not a group average, so the labels, captions and `alt` text all say "Example of …" and use the singular.
+- **`.figure__labels`** (added to the figure CSS) puts one label under each half of a two-panel image. It stays two columns on narrow screens, because the image itself does not stack.
+- **The thumbnail is cropped.** The source image is about 16:9, so its sides were trimmed evenly to fit the card's 16:10 frame.
+- **`og:image`** on both language versions of `eye-tracking-ui.html` now points at `featured-aerial.jpg`.
+
+The `.placeholder` styles are still in the stylesheet, unused, ready for the next project that ships before its images exist.

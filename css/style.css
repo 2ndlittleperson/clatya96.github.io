@@ -41,7 +41,7 @@
   --accent:  #6d4f33;
   --accent-soft: #f0ebe4;
 
-  --measure: 46rem;          /* about 72 characters at --step-0 */
+  --measure: 58rem;          /* about 90 characters at --step-0 */
   --radius: 4px;
   --header-h: 3.75rem;
 }
@@ -364,8 +364,167 @@ h1:lang(ko), h2:lang(ko), h3:lang(ko), h4:lang(ko) { line-height: 1.35; }
 
 .card__link { font-size: var(--step--1); color: var(--accent); }
 
+/* Case study and publisher links sit on one row; wrapping rather than
+   stacking keeps the card compact on a narrow screen. */
+.card__links { display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-s); }
+
+/* The whole card heading is a link on the index pages, so the hit area is the
+   title rather than a separate "read more". Underline only on hover, so a
+   grid of cards does not read as a wall of underlines. */
+.card__title a { text-decoration: none; }
+.card__title a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+
 /* --------------------------------------------------------------------------
-   9. Contact and CV
+   9. Project case study (projects/*.html)
+   Reuses the tokens, .section, .timeline and .button vocabulary from above;
+   only the page-specific pieces are declared here.
+   -------------------------------------------------------------------------- */
+.backlink {
+  font-size: var(--step--1);
+  color: var(--muted);
+  padding-top: var(--space-m);
+}
+
+.backlink a { text-decoration: none; }
+.backlink a:hover { text-decoration: underline; }
+
+/* The head block opens the page, so it loses the top rule that .section
+   would otherwise draw directly under the back link. */
+.project__head { border-top: 0; padding-top: var(--space-s); }
+
+.project__eyebrow {
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: var(--space-2xs);
+}
+
+.project__title { font-size: var(--step-3); margin-bottom: var(--space-s); }
+
+/* Capped tighter than --measure: a lede set to the full column width is hard
+   to track across at this size. */
+.project__lede {
+  font-size: var(--step-1);
+  color: var(--muted);
+  max-width: 42rem;
+  margin-bottom: var(--space-m);
+}
+
+.project__meta { margin-bottom: var(--space-m); }
+.project__meta cite { font-style: normal; font-weight: 600; }
+
+.actions { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+
+/* --- Figure --- */
+.figure { margin: 0; }
+
+.figure img {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+}
+
+.figure figcaption {
+  font-size: var(--step--1);
+  color: var(--muted);
+  margin-top: var(--space-2xs);
+  max-width: 42rem;
+}
+
+/* Labels for an image that holds two panels side by side, one under each half.
+   Stays two columns on narrow screens because the image itself does not stack. */
+.figure__labels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xs);
+}
+
+.figure__labels p {
+  font-size: var(--step--1);
+  color: var(--muted);
+  margin: var(--space-3xs) 0 0;
+}
+
+/* --- Image placeholder ---
+   A slot for a figure that does not exist yet. Dashed rather than solid so it
+   never reads as a deliberate empty panel, and it holds the aspect ratio the
+   real image will occupy, so dropping the file in does not reflow the page. */
+.placeholder {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--space-3xs);
+  aspect-ratio: 16 / 9;
+  padding: var(--space-s);
+  text-align: center;
+  background: var(--surface);
+  border: 1px dashed var(--rule);
+  border-radius: var(--radius);
+}
+
+.placeholder__name {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--step--1);
+  color: var(--text);
+  margin: 0;
+  word-break: break-all;
+}
+
+.placeholder__hint { font-size: var(--step--1); color: var(--muted); margin: 0; }
+
+/* In a card thumbnail the box is only ~14rem wide, so the filename alone fits. */
+.card__media .placeholder { aspect-ratio: 16 / 10; border: 0; border-radius: 0; }
+.card__media .placeholder__hint { display: none; }
+
+/* --- Note / disclaimer --- */
+.note {
+  font-size: var(--step--1);
+  color: var(--muted);
+  border-left: 2px solid var(--accent);
+  padding-left: var(--space-s);
+  margin-bottom: var(--space-m);
+}
+
+/* --- Numbered feature blocks --- */
+.features { display: grid; gap: var(--space-l); }
+
+.feature {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: var(--space-m);
+  align-items: start;
+}
+
+.feature__num {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: 1;
+  color: var(--accent);
+  margin: 0;
+  padding-top: 0.1em;
+  font-variant-numeric: tabular-nums;
+}
+
+.feature__title { font-size: var(--step-1); margin-bottom: var(--space-2xs); }
+
+/* list-style is cleared globally in the normalize block, so the marker is
+   drawn here instead - an em dash in the accent colour rather than a bullet,
+   which suits the serif/sans pairing better. */
+.bullets { color: var(--muted); font-size: var(--step--1); }
+
+.bullets li { position: relative; padding-left: 1.2em; margin-top: var(--space-2xs); }
+
+.bullets li::before {
+  content: "\2014";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   10. Contact and CV
    -------------------------------------------------------------------------- */
 .contact { display: flex; flex-wrap: wrap; gap: var(--space-m); align-items: center; }
 
@@ -388,7 +547,7 @@ h1:lang(ko), h2:lang(ko), h3:lang(ko), h4:lang(ko) { line-height: 1.35; }
 .button__hint { color: var(--muted); font-size: 0.9em; }
 
 /* --------------------------------------------------------------------------
-   10. Footer
+   11. Footer
    -------------------------------------------------------------------------- */
 .site-footer {
   border-top: 1px solid var(--rule);
@@ -400,7 +559,7 @@ h1:lang(ko), h2:lang(ko), h3:lang(ko), h4:lang(ko) { line-height: 1.35; }
 .site-footer p { margin: 0; }
 
 /* --------------------------------------------------------------------------
-   11. Utilities and focus states
+   12. Utilities and focus states
    -------------------------------------------------------------------------- */
 
 /* Clip-rect pattern: present for screen readers and document structure,
@@ -437,7 +596,7 @@ h1:lang(ko), h2:lang(ko), h3:lang(ko), h4:lang(ko) { line-height: 1.35; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
 /* --------------------------------------------------------------------------
-   12. Media queries
+   13. Media queries
    One layout breakpoint. Fluid type and minmax() handle the rest - stacking
    up breakpoints is where responsive CSS rots.
    -------------------------------------------------------------------------- */
@@ -462,6 +621,12 @@ h1:lang(ko), h2:lang(ko), h3:lang(ko), h4:lang(ko) { line-height: 1.35; }
   .pub__role::before { content: "\00b7\00a0"; }
 
   .card__media { max-width: 18rem; }
+
+  /* Case study: the number sits above its heading rather than beside it, so
+     the body copy keeps the full column width on a narrow screen. */
+  .feature { grid-template-columns: 1fr; gap: var(--space-2xs); }  .feature__num { font-size: var(--step-1); }
+  .project__lede { font-size: var(--step-0); }
+  .actions .button { flex: 1 1 auto; justify-content: center; }
 }
 
 /* Honour the OS setting. The 0.01ms values keep transitionend and
@@ -485,6 +650,8 @@ h1:lang(ko), h2:lang(ko), h3:lang(ko), h4:lang(ko) { line-height: 1.35; }
   .card, .pub, .timeline dd { break-inside: avoid; }
   .card__media { display: none; }
   .card { grid-template-columns: 1fr; }
+  .backlink, .actions { display: none !important; }
+  .feature, .figure { break-inside: avoid; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.85em; color: #555; word-break: break-all; }
   .about__photo { width: 6rem; height: 6rem; }
 }

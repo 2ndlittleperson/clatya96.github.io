@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>CARDS: Comprehensive AR Docent System &mdash; 윤지영</title>
+<meta name="description" content="관람객의 위치와 방향을 입력으로 삼아 작품을 안내하는 증강현실 도슨트 시스템 CARDS 프로젝트 소개. ISMAR-Adjunct 2022 발표.">
+<meta name="author" content="윤지영">
+
+<link rel="canonical" href="https://clatya96.github.io/ko/projects/cards.html">
+<link rel="alternate" hreflang="en" href="https://clatya96.github.io/projects/cards.html">
+<link rel="alternate" hreflang="ko" href="https://clatya96.github.io/ko/projects/cards.html">
+<link rel="alternate" hreflang="x-default" href="https://clatya96.github.io/projects/cards.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="CARDS: Comprehensive AR Docent System">
+<meta property="og:description" content="관람객의 위치와 신체 방향을 입력으로 삼아 하나의 작품을 안내하는 증강현실 도슨트 시스템.">
+<meta property="og:url" content="https://clatya96.github.io/ko/projects/cards.html">
+<meta property="og:image" content="https://clatya96.github.io/assets/featured-cards.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<!-- 테마 부트스트랩: 스타일시트보다 먼저 실행되어야 첫 페인트 전에
+     data-theme 이 적용되고, 다크 모드에서 흰 화면이 번쩍이지 않습니다. -->
+<script>
+  try {
+    var t = localStorage.getItem("theme");
+    if (t) document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
+
+<link rel="stylesheet" href="../../css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "CARDS: Comprehensive AR Docent System",
+  "headline": "CARDS: Comprehensive AR Docent System",
+  "inLanguage": "ko",
+  "datePublished": "2022-10",
+  "author": [
+    { "@type": "Person", "name": "Seung Un Lee" },
+    { "@type": "Person", "name": "Jiyoung Yun", "url": "https://clatya96.github.io/ko/" },
+    { "@type": "Person", "name": "Dain Kim" },
+    { "@type": "Person", "name": "D. Kim" },
+    { "@type": "Person", "name": "S. Y. Oh" },
+    { "@type": "Person", "name": "S. H. Yoon" }
+  ],
+  "isPartOf": {
+    "@type": "PublicationEvent",
+    "name": "2022 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)"
+  },
+  "pagination": "739-743",
+  "publisher": { "@type": "Organization", "name": "IEEE" },
+  "sameAs": "https://ieeexplore.ieee.org/abstract/document/9974452",
+  "image": "https://clatya96.github.io/assets/featured-cards.jpg"
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__name" href="../">윤지영</a>
+
+    <nav class="site-nav" aria-label="섹션">
+      <a href="../#about">소개</a>
+      <a href="../#education">학력 및 경력</a>
+      <a href="../#publications">연구 실적</a>
+      <a href="../#featured" aria-current="location">주요 연구</a>
+      <a href="../#contact">연락처</a>
+    </nav>
+
+    <div class="site-header__tools">
+      <p class="lang-switch">
+        <a href="../../projects/cards.html" hreflang="en" lang="en">EN</a>
+        <span class="lang-switch__sep" aria-hidden="true">|</span>
+        <span aria-current="true">KO</span>
+      </p>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="다크 모드로 전환">
+        <span aria-hidden="true">&#9790;</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <!-- ===================== 헤드 ===================== -->
+  <article class="project">
+
+    <nav class="backlink" aria-label="이동 경로">
+      <a href="../#featured"><span aria-hidden="true">&larr;</span> 주요 연구</a>
+    </nav>
+
+    <header class="section project__head">
+      <p class="project__eyebrow">AR &middot; 전시 경험 &middot; 2022</p>
+      <h1 class="project__title" lang="en">CARDS: Comprehensive AR Docent System</h1>
+      <p class="project__lede">관람객이 어디에 서 있는지, 어느 쪽을 바라보는지만으로 작품 해설의
+        순서와 깊이, 비교 대상을 결정하는 증강현실 도슨트입니다. 사람 도슨트가 하는 일을 화면이
+        아니라 관람객의 움직임에 맡겼습니다.</p>
+
+      <dl class="timeline project__meta">
+        <dt>역할</dt>
+        <dd>
+          <span class="timeline__role">공동 1저자</span>
+          <span class="timeline__detail">3인 팀: 이승운, 윤지영, 김다인</span>
+        </dd>
+
+        <dt>진행</dt>
+        <dd>
+          <span class="timeline__role">KAIST CTP445 증강현실</span>
+          <span class="timeline__detail">수업 프로젝트로 시작해 논문으로 확장</span>
+        </dd>
+
+        <dt>발표</dt>
+        <dd>
+          <span class="timeline__role" lang="en">2022 IEEE ISMAR-Adjunct</span>
+          <span class="timeline__detail" lang="en">Lee, S. U., <strong>Yun, J.</strong>, Kim, D.,
+            Kim, D., Oh, S. Y., &amp; Yoon, S. H. (2022). <cite>CARDS: Comprehensive AR Docent
+            System.</cite> In <span class="pub__venue">2022 IEEE International Symposium on Mixed
+            and Augmented Reality Adjunct (ISMAR-Adjunct)</span> (pp. 739&ndash;743). IEEE.</span>
+        </dd>
+      </dl>
+
+      <p class="actions">
+        <a class="button" href="https://ieeexplore.ieee.org/abstract/document/9974452">
+          논문 보기 <span class="button__hint" lang="en">IEEE Xplore &#8599;</span>
+        </a>
+        <a class="button" href="https://www.figma.com/proto/uzNRzh0kQCecuUKDgM5oQ0/Untitled?page-id=0%3A1&amp;node-id=0-1&amp;viewport=-7%2C562%2C0.85&amp;scaling=scale-down&amp;starting-point-node-id=2%3A146">
+          프로토타입 체험 <span class="button__hint" lang="en">Figma &#8599;</span>
+        </a>
+      </p>
+    </header>
+
+    <!-- ===================== 시스템 ===================== -->
+    <section class="section" aria-labelledby="system-h">
+      <h2 class="section__title" id="system-h">시스템</h2>
+
+      <figure class="figure">
+        <img src="../../assets/featured-cards.jpg"
+             alt="세 개의 패널. (A) 액자에 걸린 그림 앞에서 손에 든 휴대폰 화면에 빨간 AR 핀이 표시된 모습. (B) 같은 그림을 멀리서부터 가까이 다가가며 본 모습으로, 거리마다 핀 배치가 달라진다. (C) 90도에서 94도로 휴대폰을 돌리면 참조 작품이 나타나는 모습."
+             width="550" height="317" loading="eager" decoding="async">
+        <figcaption>CARDS를 이루는 세 가지 AR 상호작용:
+          <strong>(A)</strong> 맥락 기반 순차 AR 핀,
+          <strong>(B)</strong> 위치 기반 AR 핀 배치,
+          <strong>(C)</strong> 방향 기반 AR 시각 보조.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===================== 배경 ===================== -->
+    <section class="section" aria-labelledby="about-h">
+      <h2 class="section__title" id="about-h">왜 만들었나</h2>
+
+      <p>전시에서 증강현실은 볼거리 쪽으로는 충분히 쓰였습니다. 그림이 움직이고, 인물이 액자
+        밖으로 걸어 나오고, 전시장이 눈앞에서 다시 지어집니다. 반면 교육적 활용은 훨씬
+        얇습니다. 모바일 가이드를 든 관람객은 대개 어디에 서 있든, 화면의 어느 부분을 보고
+        있든 같은 설명을 같은 순서로 받게 됩니다.</p>
+
+      <p>CARDS는 무엇을 먼저 가리킬지, 얼마나 깊이 들어갈지, 무엇과 견주어 볼지를 정하는
+        도슨트의 판단 자체를 설계 대상으로 삼았습니다. 관람객의 위치와 방향이 곧 입력이 되기
+        때문에, 전시장을 걸어 다니는 행위가 그대로 인터페이스가 됩니다. 메뉴에 숨는 기능이
+        없고, 시선도 휴대폰이 아니라 작품에 머뭅니다.</p>
+
+      <!-- 지영님: 본인이 맡은 부분(연구 설계, 프로토타이핑, 평가 등)을 한 문단
+           추가하기 좋은 자리입니다. -->
+    </section>
+
+    <!-- ===================== 기능 ===================== -->
+    <section class="section" aria-labelledby="features-h">
+      <h2 class="section__title" id="features-h">세 가지 상호작용</h2>
+
+      <div class="features">
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">01</p>
+          <div>
+            <h3 class="feature__title">AR 큐로 짚어주는 해설</h3>
+            <p>전문 도슨트가 짚을 법한 지점에, 도슨트가 쓸 법한 순서대로 번호 핀이 놓입니다.
+              긴 설명문이 아니라 순서 자체가 작품 읽기를 이끕니다.</p>
+            <ul class="bullets">
+              <li>한 번 열어본 핀은 색이 바뀌어, 아직 보지 않은 부분이 한눈에 들어옵니다.</li>
+              <li>핀마다 좋아요를 남길 수 있고, 그 합계가 작품 위 하트 하나로 모여 다른
+                관람객의 관심이 드러납니다.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">02</p>
+          <div>
+            <h3 class="feature__title">거리에 따른 레이어 전환</h3>
+            <p>멀리 떨어져 보면 주제와 시대, 이 작품이 왜 중요한지 같은 큰 이야기가 나오고,
+              가까이 다가갈수록 붓질과 도상 같은 세부로 설명이 바뀝니다.</p>
+            <ul class="bullets">
+              <li>설명의 범위가 물리적 거리에 대응하므로, 개괄에서 세부로 넘어가는 데 조작도
+                설명도 필요하지 않습니다.</li>
+              <li>거리 기반 레이어 전환과 순차 핀을 결합한 지점이 논문이 내세우는 새로운
+                부분입니다.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">03</p>
+          <div>
+            <h3 class="feature__title">회전 각도로 여는 참조 작품</h3>
+            <p>작품에서 몇 도만 몸을 틀면 관련 작품이 옆에 나타납니다. 검색 화면으로 빠져나갔다
+              돌아올 필요가 없습니다.</p>
+            <ul class="bullets">
+              <li>비교가 하나의 연속된 경험 안에서 일어나므로, 관람객이 보던 자리를 잃지
+                않습니다.</li>
+              <li>다른 각도에서 보면 다른 그림이 보인다는 말을 동작 그대로 옮긴 상호작용입니다.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===================== 정리 ===================== -->
+    <section class="section" aria-labelledby="takeaway-h">
+      <h2 class="section__title" id="takeaway-h">무엇을 보여주는가</h2>
+
+      <p>세 가지 상호작용을 합치면 관람객의 몸이 곧 조작 장치가 됩니다. 위치가 설명의 깊이를,
+        방향이 설명의 폭을, 핀의 순서가 읽는 차례를 정합니다. 오디오 가이드를 그대로 화면에
+        얹은 AR과는 다른 제안이며, ISMAR 발표에서 주장한 지점도 여기입니다.</p>
+
+      <p class="actions">
+        <a class="button" href="../#featured">
+          <span aria-hidden="true">&larr;</span> 주요 연구로 돌아가기
+        </a>
+      </p>
+    </section>
+
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2026 윤지영</p>
+  </div>
+</footer>
+
+<script src="../../js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>AI 이미지 합성은 온라인 미술관의 구성주의 교육에 도움이 될까? &mdash; 윤지영</title>
+<meta name="description" content="관람객이 직접 올린 사진을 AI로 합성해 전시의 일부로 만드는 웹 미술관 연구. 83명을 세 가지 조건에 나누어 검증했습니다. CHI 2022 Extended Abstracts.">
+<meta name="author" content="윤지영">
+
+<link rel="canonical" href="https://clatya96.github.io/ko/projects/ai-art-museum.html">
+<link rel="alternate" hreflang="en" href="https://clatya96.github.io/projects/ai-art-museum.html">
+<link rel="alternate" hreflang="ko" href="https://clatya96.github.io/ko/projects/ai-art-museum.html">
+<link rel="alternate" hreflang="x-default" href="https://clatya96.github.io/projects/ai-art-museum.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 이미지 합성은 온라인 미술관의 구성주의 교육에 도움이 될까?">
+<meta property="og:description" content="관람객이 직접 올린 사진을 AI로 합성해 전시의 일부로 만드는 웹 미술관. 83명 대상 실험.">
+<meta property="og:url" content="https://clatya96.github.io/ko/projects/ai-art-museum.html">
+<meta property="og:image" content="https://clatya96.github.io/assets/featured-chi.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<!-- 테마 부트스트랩: 스타일시트보다 먼저 실행되어야 첫 페인트 전에
+     data-theme 이 적용되고, 다크 모드에서 흰 화면이 번쩍이지 않습니다. -->
+<script>
+  try {
+    var t = localStorage.getItem("theme");
+    if (t) document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
+
+<link rel="stylesheet" href="../../css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "Will AI Image Synthesis Technology Help Constructivist Education at The Online Art Museum?",
+  "headline": "Will AI Image Synthesis Technology Help Constructivist Education at The Online Art Museum?",
+  "inLanguage": "ko",
+  "datePublished": "2022-04",
+  "author": [
+    { "@type": "Person", "name": "Sewang Lee" },
+    { "@type": "Person", "name": "Jiyoung Yun", "url": "https://clatya96.github.io/ko/" },
+    { "@type": "Person", "name": "Soyeong Lee" },
+    { "@type": "Person", "name": "Yeosol Song" },
+    { "@type": "Person", "name": "Hayeon Song" }
+  ],
+  "isPartOf": {
+    "@type": "PublicationEvent",
+    "name": "CHI Conference on Human Factors in Computing Systems Extended Abstracts (CHI EA '22)"
+  },
+  "pagination": "1-7",
+  "publisher": { "@type": "Organization", "name": "Association for Computing Machinery" },
+  "identifier": "https://doi.org/10.1145/3491101.3519788",
+  "sameAs": "https://dl.acm.org/doi/10.1145/3491101.3519788",
+  "image": "https://clatya96.github.io/assets/featured-chi.jpg"
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__name" href="../">윤지영</a>
+
+    <nav class="site-nav" aria-label="섹션">
+      <a href="../#about">소개</a>
+      <a href="../#education">학력 및 경력</a>
+      <a href="../#publications">연구 실적</a>
+      <a href="../#featured" aria-current="location">주요 연구</a>
+      <a href="../#contact">연락처</a>
+    </nav>
+
+    <div class="site-header__tools">
+      <p class="lang-switch">
+        <a href="../../projects/ai-art-museum.html" hreflang="en" lang="en">EN</a>
+        <span class="lang-switch__sep" aria-hidden="true">|</span>
+        <span aria-current="true">KO</span>
+      </p>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="다크 모드로 전환">
+        <span aria-hidden="true">&#9790;</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <article class="project">
+
+    <nav class="backlink" aria-label="이동 경로">
+      <a href="../#featured"><span aria-hidden="true">&larr;</span> 주요 연구</a>
+    </nav>
+
+    <header class="section project__head">
+      <p class="project__eyebrow">AI &middot; 미술 교육 &middot; 2022</p>
+      <h1 class="project__title" lang="en">Will AI Image Synthesis Technology Help Constructivist
+        Education at The Online Art Museum?</h1>
+      <p class="project__lede">관람객에게 직접 만들어 보라고 권하는 온라인 미술관입니다. 자기
+        사진을 한 장 올리고, 무하의 작품 중 하나를 골라 그 화풍을 입히면, 결과물이 관람이
+        끝날 때 자신의 갤러리에 걸립니다. 이렇게 만든 미술관을 83명을 대상으로 검증했습니다.</p>
+
+      <dl class="timeline project__meta">
+        <dt>역할</dt>
+        <dd>
+          <span class="timeline__role">2저자</span>
+          <span class="timeline__detail">두 기관에 걸친 5인 연구팀</span>
+        </dd>
+
+        <dt>진행</dt>
+        <dd>
+          <span class="timeline__role">성균관대학교 HAI Lab</span>
+          <span class="timeline__detail">한국과학기술원(KAIST) 문화기술대학원과 공동 진행.
+            지도교수: 송하연.</span>
+        </dd>
+
+        <dt>발표</dt>
+        <dd>
+          <span class="timeline__role" lang="en">CHI 2022 Extended Abstracts</span>
+          <span class="timeline__detail" lang="en">Lee, S., <strong>Yun, J.</strong>, Lee, S.,
+            Song, Y., &amp; Song, H. (2022, April). <cite>Will AI image synthesis technology help
+            constructivist education at the online art museum?</cite> In
+            <span class="pub__venue">CHI Conference on Human Factors in Computing Systems
+            Extended Abstracts</span> (pp. 1&ndash;7). ACM.</span>
+        </dd>
+      </dl>
+
+      <p class="actions">
+        <a class="button" href="https://dl.acm.org/doi/10.1145/3491101.3519788">
+          논문 보기 <span class="button__hint" lang="en">ACM Digital Library &#8599;</span>
+        </a>
+        <a class="button" href="https://doi.org/10.1145/3491101.3519788">
+          DOI <span class="button__hint" lang="en">10.1145/3491101.3519788 &#8599;</span>
+        </a>
+      </p>
+    </header>
+
+    <!-- ===================== 시스템 ===================== -->
+    <section class="section" aria-labelledby="system-h">
+      <h2 class="section__title" id="system-h">시스템</h2>
+
+      <figure class="figure">
+        <img src="../../assets/featured-chi.jpg"
+             alt="CAAI 웹 페이지 화면. 위쪽에는 관람객이 올린 사진들과 업로드 버튼, 가운데에는 화풍을 고를 수 있는 알폰스 무하의 아르누보 포스터 그리드와 생성 버튼, 아래쪽에는 합성된 작품이 모인 갤러리가 있다."
+             width="900" height="885" loading="eager" decoding="async">
+        <figcaption>논문의 figure (b) &mdash; CAAI 웹 페이지. 1단계에서 사진을 고르고, 2단계에서 화풍을 빌려올 작품을
+          고르면, 맨 아래 띠가 관람하는 동안 직접 만든 작품으로 채워집니다.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===================== 배경 ===================== -->
+    <section class="section" aria-labelledby="about-h">
+      <h2 class="section__title" id="about-h">왜 만들었나</h2>
+
+      <p>코로나19는 미술관을 예정보다 훨씬 빠르게 온라인으로 밀어 넣었고, 미술관 교육도 함께
+        따라갔습니다. 그렇게 옮겨진 것은 대개 전시장 벽을 브라우저에 그대로 옮긴 형태였습니다.
+        고해상도 이미지, 그 옆의 설명문, 스크롤하는 관람객. 작품을 보기에는 무리가 없지만
+        배우기에는 부족한 구조입니다.</p>
+
+      <p>구성주의 교육은 정반대 전제에서 출발합니다. 사람은 설명을 받아서가 아니라 직접
+        만들어 보고 이미 가진 것과 연결하면서 이해를 쌓는다는 것입니다. 이 연구는 AI 이미지
+        합성이 온라인 미술관에 바로 그 빠진 조각을 줄 수 있는지 물었습니다. 모든 관람객이
+        자기 것으로 된 재료를 가지고 전시 안에서 무언가를 즉석에서 만들어 낼 수 있는 방법
+        말입니다.</p>
+
+      <!-- 지영님: 본인이 맡은 부분(실험 설계, 측정 문항, 분석 등)을 한 문단
+           추가하기 좋은 자리입니다. -->
+    </section>
+
+    <!-- ===================== 관람 흐름 ===================== -->
+    <section class="section" aria-labelledby="features-h">
+      <h2 class="section__title" id="features-h">관람의 세 단계</h2>
+
+      <div class="features">
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">01</p>
+          <div>
+            <h3 class="feature__title">자기 사진을 가져온다</h3>
+            <p>관람은 사진을 보여주는 대신 사진을 달라고 요청하며 시작합니다. 관람객이 자기
+              휴대폰에 있던 사진 &mdash; 길거리, 카페 테이블, 친구 &mdash; 을 올리고 작업할
+              한 장을 고릅니다.</p>
+            <ul class="bullets">
+              <li>관람객 자신의 재료에서 출발한다는 점이 구성주의적 설계의 핵심입니다. 새로운
+                것이 이미 애착이 있는 것에 붙습니다.</li>
+              <li>동시에 이 지점이 실험의 조작 변인이기도 합니다. 한 조건에서는 사진을 직접
+                올리는 대신 미술관이 제공한 사진을 받습니다.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">02</p>
+          <div>
+            <h3 class="feature__title">작품의 화풍을 빌린다</h3>
+            <p>알폰스 무하의 아르누보 포스터들이 전시 그 자체의 역할을 합니다. 그중 하나를
+              고르는 것이 곧 화풍을 고르는 것이고, 시스템은 관람객의 사진을 그 화풍으로
+              합성합니다.</p>
+            <ul class="bullets">
+              <li>작품을 자세히 보는 일이 권장 사항이 아니라 필수가 됩니다. 내 사진을 어느
+                작품처럼 만들지 직접 정해야 하기 때문입니다.</li>
+              <li>원본 작품과 합성 결과가 같은 화면에 놓이므로 비교가 즉각적입니다.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="feature">
+          <p class="feature__num" aria-hidden="true">03</p>
+          <div>
+            <h3 class="feature__title">갤러리를 들고 나간다</h3>
+            <p>만든 결과물은 관람 내내 쌓이는 개인 갤러리에 더해집니다. 관람이 끝나면 온전히
+              자기 것인 작은 작품 묶음이 남습니다.</p>
+            <ul class="bullets">
+              <li>관람의 기록이 결과물 자체가 됩니다. 스쳐 지나간 작품 목록과는 다른
+                기념품입니다.</li>
+              <li>들어가서, 만들고, 만든 것을 본다는 뚜렷한 흐름이 생깁니다.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===================== 실험 ===================== -->
+    <section class="section" aria-labelledby="study-h">
+      <h2 class="section__title" id="study-h">어떻게 검증했나</h2>
+
+      <p>설계의 타당성을 주장하는 대신 실제로 실험했습니다. 참가자는 세 가지 웹 미술관 중 딱
+        하나를 관람했고, 세 미술관은 관람객이 직접 만드는 범위에서만 차이가 있었습니다.</p>
+
+      <dl class="timeline">
+        <dt>참가자</dt>
+        <dd>
+          <span class="timeline__role">83명</span>
+          <span class="timeline__detail">피험자 간 설계 &mdash; 한 사람이 한 미술관만 관람하며,
+            조건끼리 비교하지 않습니다</span>
+        </dd>
+
+        <dt>조건</dt>
+        <dd>
+          <span class="timeline__role">세 가지 온라인 미술관</span>
+          <span class="timeline__detail">(1) AI 이미지 합성 없음 &middot; (2) 미술관이 제공한
+            사진에 합성 적용 &middot; (3) 관람객이 직접 올린 사진에 합성 적용</span>
+        </dd>
+
+        <dt>측정</dt>
+        <dd>
+          <span class="timeline__role">동기, 만족도, 구성주의적 경험</span>
+          <span class="timeline__detail">관람 후 자기보고</span>
+        </dd>
+      </dl>
+    </section>
+
+    <!-- ===================== 결과 ===================== -->
+    <section class="section" aria-labelledby="findings-h">
+      <h2 class="section__title" id="findings-h">무엇을 발견했나</h2>
+
+      <p>직접 올린 사진 조건이 나머지 두 조건보다 앞섰습니다. 이 조건의 관람객은 더 높은
+        동기와 만족도를 보고했고, 자신의 경험을 더 구성주의적인 방식으로 기술했습니다. 합성
+        기술 자체가 원인은 아니었습니다. 같은 AI를 미술관이 제공한 사진에 적용한 조건에서는
+        같은 효과가 나타나지 않았습니다.</p>
+
+      <p>이 지점이 비슷한 것을 만들려는 사람에게 쓸모 있는 결과입니다. 작동한 요인은 기술이
+        아니라 누구의 재료가 들어갔느냐였습니다. 관람객에게 인상적인 이미지를 만들어 주는
+        온라인 미술관과, 관람객이 자기 이미지를 만들도록 돕는 온라인 미술관은 다른 일을 하고
+        있으며, 학습으로 읽히는 쪽은 후자였습니다.</p>
+
+      <p class="actions">
+        <a class="button" href="../#featured">
+          <span aria-hidden="true">&larr;</span> 주요 연구로 돌아가기
+        </a>
+      </p>
+    </section>
+
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2026 윤지영</p>
+  </div>
+</footer>
+
+<script src="../../js/main.js" defer></script>
+</body>
+</html>
